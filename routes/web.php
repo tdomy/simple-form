@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/inquiry', 'InquiryController@show')->name('inquiry');
+Route::post('/inquiry/confirm', 'InquiryController@confirm');
+Route::post('/inquiry/finish', 'InquiryController@finish');
