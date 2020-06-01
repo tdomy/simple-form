@@ -21,33 +21,44 @@
 @endsection
 
 @section('content')
-  @if ($errors->any())
-    <div class="alert alert-danger">
-      <ul>
-        @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-        @endforeach
-      </ul>
-    </div>
-  @endif
+  @error('token')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
 
   <form method="POST" id="contactform" action="/inquiry/confirm">
     @csrf
-    <table>
+    <table class="table-form">
       <tr>
         <th>お名前</th>
-        <td><input name="name" /></td>
+        <td>
+          <input name="name" />
+          @error('name')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+        </td>
       </tr>
       <tr>
         <th>メールアドレス</th>
-        <td><input type="email" name="email" /></td>
+        <td>
+          <input type="email" name="email" />
+          @error('email')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+        </td>
       </tr>
       <tr>
         <th>メッセージ</th>
-        <td><textarea name="message" ></textarea></td>
+        <td>
+          <textarea name="message" ></textarea>
+          @error('message')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+        </td>
       </tr>
     </table>
     <input type="hidden" name="token" id="recaptcha-token" />
-    <button type="button" id="submit-button" onclick="onClick(event)">確認する</button>
+    <div class="button-area">
+      <button type="button" class="go" onclick="onClick(event)">確認する</button>
+    </div>
   </form>
 @endsection

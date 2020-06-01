@@ -21,4 +21,18 @@ class InquiryRequest extends FormRequest
             'token'     => ['required', resolve(ReCaptcha::class)],
         ];
     }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required'     => 'お名前は必須です。',
+            'email.required'    => 'メールアドレスは必須です。',
+            'message.required'  => 'メッセージは必須です。',
+        ];
+    }
 }

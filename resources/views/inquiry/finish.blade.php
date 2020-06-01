@@ -3,5 +3,5 @@
 @section('title', 'お問合わせ送信完了')
 
 @section('content')
-  <p>ありがとうございました。</p>
+  <p>お問合わせは正常に送信されました。<br />ありがとうございました。</p>
 @endsection

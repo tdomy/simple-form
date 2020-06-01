@@ -5,7 +5,7 @@
 @section('content')
   <form method="POST" action="/inquiry/finish">
     @csrf
-    <table>
+    <table class="table-form">
       <tr>
         <th>お名前</th>
         <td>{{ $name }}</td>
@@ -19,6 +19,9 @@
         <td>{{ $message }}</td>
       </tr>
     </table>
-    <button type="submit">送信する</button>
+    <div class="button-area">
+      <button type="button" class="back" onclick="javascript:window.history.back(-1);return false;">戻る</button>
+      <button type="submit" class="go">送信する</button>
+    </div>
   </form>
 @endsection

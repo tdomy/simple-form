@@ -1,0 +1,100 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+       -o-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html, body{
+  margin: 0;
+  padding: 0;
+  width:100%;
+}
+
+html {
+  font-size: 18px;
+}
+
+.container {
+  max-width: 960px;
+  min-width: 360px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.alert-danger {
+  color: red;
+}
+
+.table-form {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-form tr {
+  border-top: 1px #f0f0f0 solid;
+}
+.table-form tr:first-child {
+  border-top: none;
+}
+.table-form th, .table-form td {
+  padding: 1rem 0.5rem;
+}
+.table-form th {
+  width: 25%;
+  text-align: right;
+}
+.table-form td {
+  width: 75%;
+}
+.table-form input, .table-form textarea {
+  border: 1px #69adce solid;
+  padding: 0.5rem 0.3rem;
+  border-radius: 4px;
+  width: 100%;
+}
+.table-form textarea {
+  resize: none;
+  height: 10rem;
+}
+.table-form input:focus, .table-form textarea:focus {
+  background: #EEFFFF;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+.button-area {
+  width: 100%;
+  text-align: center;
+}
+.button-area button {
+  display: inline-block;
+  margin: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5);
+  height: 3rem;
+  width: 10rem;
+}
+.button-area button.go {
+  background: #4C9ED9;
+  color: #fff;
+}
+.button-area button.back {
+  background: #bfbfbf;
+  color: #fff;
+}
+
+@media (max-width: 959px) {
+  .table-form th, .table-form td {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  .table-form th {
+    padding-bottom: 0.2rem;
+  }
+  .table-form td {
+    padding-top: 0.2rem;
+  }
+}
