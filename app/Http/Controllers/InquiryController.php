@@ -30,7 +30,7 @@ class InquiryController extends Controller
             return redirect()->route('inquiry');
         }
 
-        $form_data = $request->session()->get(self::FORM_DATA_KEY);
+        $form_data = $request->session()->pull(self::FORM_DATA_KEY);
         $inquiry = new Inquiry($form_data);
         $inquiry->notify(new Inquired);
 
