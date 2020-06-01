@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\InquiryRequest;
+use App\Models\Inquiry;
+use App\Notifications\Inquired;
 use Illuminate\Http\Request;
 
 class InquiryController extends Controller
@@ -29,8 +31,8 @@ class InquiryController extends Controller
         }
 
         $form_data = $request->session()->get(self::FORM_DATA_KEY);
-
-        // ここで$form_dataを送信する
+        $inquiry = new Inquiry($form_data);
+        $inquiry->notify(new Inquired);
 
         return view('inquiry.finish');
     }
