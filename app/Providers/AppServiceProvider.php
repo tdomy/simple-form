@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use ReCaptcha\ReCaptcha;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(ReCaptcha::class, function ($app) {
+            return new ReCaptcha(config('services.recaptcha.secret'));
+        });
     }
 
     /**
@@ -23,6 +26,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
     }
 }

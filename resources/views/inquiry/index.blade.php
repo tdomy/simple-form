@@ -3,13 +3,12 @@
 @section('title', 'お問合わせ')
 
 @section('script')
-<!--<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.sitekey') }}"></script>-->
+<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.sitekey') }}"></script>
 <script>
   function onClick(e) {
     // ボタンを無効に
     e.currentTarget.disabled = true;
-    document.getElementById("contactform").submit();
-    /*
+
     grecaptcha.ready(function() {
       grecaptcha.execute("{{ config('services.recaptcha.sitekey') }}", {action: "submit"}).then(function(token) {
         // tokenをフォームにセットして送信
@@ -17,7 +16,6 @@
         document.getElementById("contactform").submit();
       });
     });
-    */
   }
 </script>
 @endsection

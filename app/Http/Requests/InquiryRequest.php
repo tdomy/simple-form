@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\ReCaptcha;
 
 class InquiryRequest extends FormRequest
 {
@@ -17,6 +18,7 @@ class InquiryRequest extends FormRequest
             'name'      => ['required'],
             'email'     => ['required', 'email:rfc'],
             'message'   => ['required'],
+            'token'     => ['required', resolve(ReCaptcha::class)],
         ];
     }
 }
