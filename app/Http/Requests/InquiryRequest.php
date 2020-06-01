@@ -12,13 +12,13 @@ class InquiryRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(ReCaptcha $re_captcha)
     {
         return [
-            'name'      => ['required'],
+            'name'      => ['required', 'max:20'],
             'email'     => ['required', 'email:rfc'],
-            'message'   => ['required'],
-            'token'     => ['required', resolve(ReCaptcha::class)],
+            'message'   => ['required', 'max:1024'],
+            'token'     => ['required', $re_captcha],
         ];
     }
 
@@ -30,9 +30,24 @@ class InquiryRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required'     => 'お名前は必須です。',
-            'email.required'    => 'メールアドレスは必須です。',
-            'message.required'  => 'メッセージは必須です。',
+            'required'  => ':attributeは必須です。',
+            'max'       => ':attributeは最大:max文字で入力してください。',
+            'rfc'       => '正しいメールアドレスを入力してください。',
+        ];
+    }
+
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'name'      => 'お名前',
+            'email'     => 'メールアドレス',
+            'message'   => 'メッセージ',
+            'token'     => 'ReCaptcha',
         ];
     }
 }

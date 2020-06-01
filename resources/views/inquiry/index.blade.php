@@ -31,7 +31,7 @@
       <tr>
         <th>お名前</th>
         <td>
-          <input name="name" />
+          <input type="text" name="name" value="{{ old('name') }}"/>
           @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
           @enderror
@@ -40,7 +40,7 @@
       <tr>
         <th>メールアドレス</th>
         <td>
-          <input type="email" name="email" />
+          <input type="email" name="email" value="{{ old('email') }}"/>
           @error('email')
             <div class="alert alert-danger">{{ $message }}</div>
           @enderror
@@ -49,7 +49,7 @@
       <tr>
         <th>メッセージ</th>
         <td>
-          <textarea name="message" ></textarea>
+          <textarea name="message">{{ old('message') }}</textarea>
           @error('message')
             <div class="alert alert-danger">{{ $message }}</div>
           @enderror
